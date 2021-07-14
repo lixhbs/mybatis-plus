@@ -121,6 +121,8 @@ public enum DbType {
      * HighGo
      */
     HighGo("highgo", "瀚高数据库"),
+
+    INFORMIX("INFORMIX", "南大通用Gbase8s / INFORMIX"),
     /**
      * UNKONWN DB
      */

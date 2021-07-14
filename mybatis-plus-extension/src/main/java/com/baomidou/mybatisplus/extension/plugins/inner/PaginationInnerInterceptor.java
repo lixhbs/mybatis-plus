@@ -185,6 +185,14 @@ public class PaginationInnerInterceptor implements InnerInterceptor {
         List<ParameterMapping> mappings = mpBoundSql.parameterMappings();
         Map<String, Object> additionalParameter = mpBoundSql.additionalParameters();
         model.consumers(mappings, configuration, additionalParameter);
+        if(dbType.equals(DbType.INFORMIX)){
+            mappings.add(0,mappings.get(mappings.size()-1));
+            mappings.remove(mappings.size()-1);
+            if(page.offset() > 0) {
+                mappings.add(0,mappings.get(mappings.size()-2));
+                mappings.remove(mappings.size()-1);
+            }
+        }
         mpBoundSql.sql(model.getDialectSql());
         mpBoundSql.parameterMappings(mappings);
     }

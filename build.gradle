@@ -1,8 +1,8 @@
 import java.time.LocalDateTime
 
 allprojects {
-    group = 'com.baomidou'
-    version = "3.4.3"
+    group = 'com.longrise'
+    version = "3.4.3.1.0"
 }
 
 ext {
@@ -85,8 +85,8 @@ subprojects {
 
     repositories {
         mavenLocal()
-        maven { url "https://maven.aliyun.com/repository/public" }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "http://192.168.9.61:8668/repository/maven-public" }
+        maven { url "http://192.168.9.61:8668/repository/maven-snapshots" }
         jcenter()
     }
 
@@ -186,8 +186,8 @@ subprojects {
             maven {
                 def userName = System.getProperty("un")
                 def passWord = System.getProperty("ps")
-                def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-                def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots/"
+                def releasesRepoUrl = "http://192.168.9.61:8668/repository/maven-releases"
+                def snapshotsRepoUrl = "http://192.168.9.61:8668/repository/maven-snapshots"
                 url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 
                 credentials {
